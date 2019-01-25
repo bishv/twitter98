@@ -1,0 +1,79 @@
+.feed {
+  &_container {
+    width: 800px;
+    height: 800px;
+    margin: 20px auto 0;
+    border: 4px solid black;
+    background-color: #009294;
+    overflow: auto;
+  }
+
+  &_body {
+    position: center;
+  }
+
+  &_data {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 10px 10px 0;
+    border: 3px solid;
+    border-bottom: none;
+    background-color: whitesmoke;
+  }
+
+  &_post {
+    margin: 0 10px;
+    border: 3px solid black;
+    border-bottom: white;
+    background-color: whitesmoke;
+  }
+
+  &_user {
+    &-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-image: url('../../icons/pirate.png');
+      background-size: cover;
+    }
+
+    &-name {
+      color: blueviolet;
+      font-size: 30px;
+    }
+
+    &-time {
+      font-size: 20px;
+    }
+  }
+
+  &_back {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 10px;
+    border: 3px solid;
+    background-color: whitesmoke;
+
+    &-like {
+      width: 30px;
+      height: 30px;
+      background-image: url('../../icons/like-512.png');
+      background-size: cover;
+    }
+
+    &-remit {
+      width: 30px;
+      height: 30px;
+      background-image: url('../../icons/remit.png');
+      background-size: cover;
+    }
+
+    &-comment {
+      width: 30px;
+      height: 30px;
+      background-image: url('../../icons/comment.png');
+      background-size: cover;
+    }
+  }
+}

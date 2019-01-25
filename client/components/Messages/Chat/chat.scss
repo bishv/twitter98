@@ -1,0 +1,53 @@
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 525px;
+  height: 50%;
+  border: 3px solid whitesmoke;
+  border-right-color: black;
+  border-bottom-color: black;
+  background-color: #009294;
+}
+
+.chat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 85%;
+  margin: 5px;
+  border: 3px solid black;
+  border-right-color: whitesmoke;
+  border-bottom-color: whitesmoke;
+  background-color: whitesmoke;
+
+  &_read-part {
+    display: flex;
+    margin-top: 10px;
+  }
+
+  &_input {
+    width: 75%;
+    height: 27px;
+    padding-left: 5px;
+    border: 3px solid black;
+    border-right-color: whitesmoke;
+    border-bottom-color: whitesmoke;
+    background-size: 100%;
+  }
+
+  &_send-button {
+    width: 25%;
+    height: 30px;
+    border: 3px solid whitesmoke;
+    border-radius: 1px;
+    border-right-color: black;
+    border-bottom-color: black;
+  }
+
+  &_send-button:active {
+    border: 3px solid black;
+    border-right-color: whitesmoke;
+    border-bottom-color: whitesmoke;
+  }
+}

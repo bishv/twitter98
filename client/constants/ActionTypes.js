@@ -1,0 +1,1 @@
+export const SHOW_MESSAGES = 'SHOW_MESSAGES';
