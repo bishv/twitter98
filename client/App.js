@@ -6,6 +6,17 @@ import Feed from "./components/Feed/Feed";
 
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+
+        this.socket = io.connect('http://localhost:7700');
+        this.socket.on('news', (data) => {
+          console.log(data);
+          this.socket.emit('my other event', { my: 'data' });
+        });
+    
+    }
+
     state = {
         showed: false
     }

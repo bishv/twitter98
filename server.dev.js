@@ -1,11 +1,33 @@
 import express from 'express';
 import path from 'path';
+import WebSocket from 'ws';
+import http from 'http';
+import io from 'socket.io';
+import mysql from 'mysql';
+
+const mysqlPool = mysql.createPool({
+  'host': 'localhost',
+  'user': 'root',
+  'password': '222295589',
+  'database': 'twitter98'
+});
+
+const app = express();
+
+var httpServer = http.Server(app);
+
+var socketServer = io(httpServer);
+
+socketServer.on('connection', function (socketClient) {
+  socketClient.emit('news', { hello: 'world' });
+  socketClient.on('my other event', function (data) {
+    console.log(data);
+  });
+});
 
 const PORT = 7700;
 
 const PUBLIC_PATH = path.join(__dirname, 'public');
-
-const app = express();
 
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.babel').default;
@@ -18,14 +40,64 @@ app.use(require('webpack-dev-middleware')(compiler, {
 }));
 app.use(require('webpack-hot-middleware')(compiler));
 
-app.get("/users", function(req, res) {
-  res.send([
-    { id: 1, name: "Alexey", age: 30 },
-    { id: 2, name: "Ignat", age: 15 },
-    { id: 3, name: "Sergey", age: 26 },
-  ]);
+app.get('/users', function(req, res, next) {
+  mysqlPool.getConnection((error, mysqlConnection) => {
+    if (error) {
+      next(error);
+    } else {
+      mysqlConnection.query('SELECT * FROM users', [], (error, rows, fields) => {
+        if (error) {
+          next(error);
+        } else {
+          res.send(rows);        
+        }
+      });
+    }
+  });
 });
 
-app.listen(PORT, function() {
+app.get('/users/:id([0-9]+)', function (req, res, next) {
+  var userId = req.params.id;
+  mysqlPool.getConnection((error, mysqlConnection) => {
+    if (error) {
+      next(error);
+    } else {
+      mysqlConnection.query('SELECT * FROM users WHERE id = ?', [userId], (error, rows, fields) => {
+        if (error) {
+          next(error);
+        } else {
+          if (rows.length > 0) {
+            res.send(rows[0]);        
+          } else {
+            res.send(null);
+          }
+        }
+      });
+    }
+  });
+});
+
+app.get('/users/add/:nick/:email/:firstname/:lastname/:gender', function (req, res, next) {
+  var userId = req.params.id;
+  mysqlPool.getConnection((error, mysqlConnection) => {
+    if (error) {
+      next(error);
+    } else {
+      mysqlConnection.query('SELECT * FROM users WHERE id = ?', [userId], (error, rows, fields) => {
+        if (error) {
+          next(error);
+        } else {
+          if (rows.length > 0) {
+            res.send(rows[0]);        
+          } else {
+            res.send(null);
+          }
+        }
+      });
+    }
+  });
+});
+
+httpServer.listen(PORT, function() {
   console.log('Listening on port ' + PORT + '...');
 });
