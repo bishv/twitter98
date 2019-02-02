@@ -4,6 +4,7 @@ import WebSocket from 'ws';
 import http from 'http';
 import io from 'socket.io';
 import mysql from 'mysql';
+import bodyParser from 'body-parser';
 
 const mysqlPool = mysql.createPool({
   'host': 'localhost',
@@ -40,7 +41,9 @@ app.use(require('webpack-dev-middleware')(compiler, {
 }));
 app.use(require('webpack-hot-middleware')(compiler));
 
-app.get('/users', function(req, res, next) {
+app.use(bodyParser.json());
+
+app.get('/api/users', function(req, res, next) {
   mysqlPool.getConnection((error, mysqlConnection) => {
     if (error) {
       next(error);
@@ -56,7 +59,7 @@ app.get('/users', function(req, res, next) {
   });
 });
 
-app.get('/users/:id([0-9]+)', function (req, res, next) {
+app.get('/api/users/:id([0-9]+)', function (req, res, next) {
   var userId = req.params.id;
   mysqlPool.getConnection((error, mysqlConnection) => {
     if (error) {
@@ -77,7 +80,7 @@ app.get('/users/:id([0-9]+)', function (req, res, next) {
   });
 });
 
-app.get('/users/add/:nick/:email/:firstname/:lastname/:gender', function (req, res, next) {
+app.get('/api/users/add/:nick/:email/:firstname/:lastname/:gender', function (req, res, next) {
   var userId = req.params.id;
   mysqlPool.getConnection((error, mysqlConnection) => {
     if (error) {
@@ -95,6 +98,27 @@ app.get('/users/add/:nick/:email/:firstname/:lastname/:gender', function (req, r
         }
       });
     }
+  });
+});
+
+app.post('/api/register', function (req, res, next) {
+
+  mysqlPool.getConnection((error, mysqlConnection) => {
+    if (error) {
+      next(error);
+    } else {
+      res.json({
+        'success': true,
+        'data': req.body
+      });    
+    }
+  });
+});
+
+app.use(function (error, req, res, next) {
+  res.json({
+    'success': false,
+    'error': error.message
   });
 });
 
