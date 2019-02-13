@@ -4,7 +4,9 @@ import Header from "./components/Header/Header";
 import Messages from "./components/Messages/Messages";
 import Feed from "./components/Feed/Feed";
 import Login from './components/Login/Login';
+import LoginContainer from './components/LoginContainer/LoginContainer';
 import Register from './components/Register/Register.js';
+import { Route, Link, Switch } from 'react-router-dom';
 
 class App extends Component {
     constructor(props) {
@@ -29,7 +31,11 @@ class App extends Component {
     }
     render() {
         return (
-            <Register/>
+            <Switch>
+                <Route exact path="/" component={Feed} />
+                <Route exact path="/login" component={LoginContainer} />
+                <Route exact path="/register" component={Register} />
+            </Switch>
             /*<div className="App">
                 <Header toggle={this.showedToggle} />
                 {this.state.showed && <Messages />}

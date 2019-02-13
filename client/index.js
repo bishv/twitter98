@@ -6,13 +6,14 @@ import App from "./App";
 import {BrowserRouter} from 'react-router-dom';
 import {Provider} from "react-redux";
 import {createStore} from 'redux';
-import reducer from './reducers/reducer'
+import reducer from './reducers/reducer';
+import Login from './components/Login/Login';
 
 const store = createStore(reducer);
 
 ReactDOM.render(
     <Provider store={store}>
-        <BrowserRouter>
+        <BrowserRouter baseUrl="/">
             <App/>
         </BrowserRouter>
     </Provider>
