@@ -19,25 +19,40 @@ class App extends Component {
     }
 
     state = {
-        showed: false
-    }
+        showedMessages: false,
+        showedNotifications: false,
+        showedProfile: false
+    };
 
     showedToggle = () => {
         this.setState({
-            showed: !this.state.showed
+            showedMessages: !this.state.showedMessages
+
+        })
+    }
+    showNot = () => {
+        this.setState({
+            showedNotifications: !this.state.showedNotifications
+        })
+    }
+
+    showProfile = () => {
+        this.setState({
+            showedProfile: !this.state.showedProfile
         })
     }
     render() {
         return (
-            <Register/>
-            /*<div className="App">
-                <Header toggle={this.showedToggle} />
-                {this.state.showed && <Messages />}
-                <Login/>
+            <div className="App">
+                {/*<Register/>*/}
+                <Header toggle={this.showedToggle} notif={this.showNot} openProfile={this.showProfile}/>
+                {this.state.showedMessages && <Messages />}
+                {this.state.showedNotifications && <Notifications/>}
+                {this.state.showedProfile && <Profile/>}
                 <Feed/>
+                <Login/>
 
-
-            </div>*/
+            </div>
         );
     }
 }
