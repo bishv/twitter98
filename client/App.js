@@ -33,7 +33,7 @@ class App extends Component {
         return (
             <Switch>
                 <Route exact path="/" component={Feed} />
-                <Route exact path="/login" component={LoginContainer} />
+                <Route exact path="/login" component={Login} />
                 <Route exact path="/register" component={Register} />
             </Switch>
             /*<div className="App">

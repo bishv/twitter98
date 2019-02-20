@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 
 class Login extends Component {
     state = {
-        isVisible: false
+        isVisible: true
     }
 
     showedToggle = () => {
@@ -16,13 +16,21 @@ class Login extends Component {
     render() {
         if (this.state.isVisible) {
             return (
-                <div>
-                    <form>
-                        <input type="text" name="name" /><br/>
-                        <input type="text" name="password"/><br/>
-                        <button type="submit">Login</button>
+                <div className="loginWrap">
+                <div className="loginBlock">
+                    <div className="loginHeader">
+                        <img className="errorIcon"/>
+                        <p className="loginHeaderText">Error 322 : Permission denied</p>
+                    </div>
+                    <form className="loginForm">
+
+                        <p className="loginFormItem">Name: <input className="loginInput" type="text" name="nickname"/></p>
+                        <p className="loginFormItem">Password: <input className="loginInput" type="password" name="password"/></p>
+                        <button className="loginButton" type="submit">Login</button>
                     </form>
                 </div>
+                </div>
+
             );
         } else {
             return null;
