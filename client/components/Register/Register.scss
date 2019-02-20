@@ -1,0 +1,70 @@
+body{
+  background-color: #007e7d;
+}
+.errorIcon{
+  width: 20px;
+  height: 20px;
+  background-image: url("../../icons/errorIcon.png");
+  background-size: contain ;
+}
+.registerBlock{
+  border: 1.5px solid white;
+  border-right-color: black;
+  border-bottom-color: black;
+  display: flex;
+  width: 350px;
+  height: 200px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  background-color: #bababa;
+}
+.registerInput{
+  border: 1px solid black;
+  border-right-color: white;
+  border-bottom-color: white;
+  float: right;
+}
+.registerFormItem{
+  font-size: 16px;
+  margin-left: 10px;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+.registerHeader{
+  display: flex;
+  height: 20px;
+  width: 100%;
+  background-color: #0104c4;
+}
+.registerHeaderText{
+  margin-left: 10px;
+  align-self: center;
+  font-size: 14px;
+  color: white;
+}
+.registerForm{
+  align-self: center;
+  position: absolute;
+
+}
+.registerButton{
+  background-color: #bababa;
+  width: 100px;
+  height: 30px;
+  margin-top: 10px;
+  margin-left: 10px;
+  border: 1.5px solid white;
+  border-right-color: black;
+  border-bottom-color: black;
+  user-select: none;
+
+}
+.registerButton:active{
+  border: 1.5px solid black;
+  border-right-color: white;
+  border-bottom-color: white;
+}
