@@ -8,6 +8,42 @@
     overflow: auto;
   }
 
+  &_buttons {
+    display: flex;
+  }
+
+  &_favor {
+    padding: 10px;
+    border: 3px solid black;
+    border-top: white;
+    border-left: white;
+  }
+
+  &_favor:active {
+    border: 3px solid black;
+    border-right-color: whitesmoke;
+    border-bottom-color: whitesmoke;
+  }
+
+  &_favor.active {
+    border: 3px solid black;
+    border-right-color: whitesmoke;
+    border-bottom-color: whitesmoke;
+  }
+
+  &_btn {
+    padding: 10px;
+    border: 3px solid black;
+    border-top: white;
+    border-left: white;
+  }
+
+  &_btn:active {
+    border: 3px solid black;
+    border-right-color: whitesmoke;
+    border-bottom-color: whitesmoke;
+  }
+
   &_body {
     position: center;
   }
@@ -50,6 +86,7 @@
 
   &_back {
     display: flex;
+    align-items: center;
     justify-content: space-around;
     margin: 0 10px;
     border: 3px solid;
@@ -58,7 +95,7 @@
     &-like {
       width: 30px;
       height: 30px;
-      background-image: url('../../icons/like-512.png');
+      background-image: url('../../icons/white_like.svg');
       background-size: cover;
     }
 

@@ -1,11 +1,9 @@
 .troll {
-  display: flex;
-}
+  display: flex; }
 
 .notifications-container {
   display: flex;
   position: absolute;
   width: 100px;
   height: 100px;
-  background-color: whitesmoke;
-}
+  background-color: whitesmoke; }
