@@ -4,14 +4,18 @@ import {connect} from "react-redux";
 
 class Register extends Component {
     state = {
-        isVisible: false
-    }
+        isVisible: false,
+        nickname: "",
+        password: "",
+        email: "",
+        confirmPassword: ""
+    };
 
     showedToggle = () => {
         this.setState({
             isVisible: !this.state.isVisible
         })
-    }
+    };
 
     handleSubmit(event) {
         event.preventDefault();
@@ -25,8 +29,11 @@ class Register extends Component {
         }).then(function (response) {
             if (response.ok) {
                 response.json().then(function(data) {  
-                    alert(JSON.stringify(data));  
+                    alert(JSON.stringify(data));
                 }); 
+            }
+            else{
+                alert("JOPA");
             }
         });
     }
@@ -35,7 +42,7 @@ class Register extends Component {
         this.setState({email: event.target.value});
     };
 
-    handleNickNameChange = (event) => {
+    handleNameChange = (event) => {
         this.setState({nickname: event.target.value});
     };
 
@@ -52,15 +59,21 @@ class Register extends Component {
 
 //        if (this.state.isVisible) {
             return (
-                <div>
-                    <form onSubmit={this.handleSubmit}>
-        
-                        Nickname: <input type="text" name="nickname" value={this.state.nickname} onChange={this.handleNameChange} /><br/>
-                        Password: <input type="text" name="password"value={this.state.password} onChange={this.handlePasswordChange} /><br/>
-                        Confirm password: <input type="text" name="confirmPassword"value={this.state.confirmPassword} onChange={this.handleConfirmPasswordChange} /><br/>
-                        E-mail: <input type="text" name="email"value={this.state.email} onChange={this.handleEmailChange} /><br/>
-                        <button type="submit">Register</button>
+                <div className="registerWrap">
+                <div className="registerBlock">
+                    <div className="registerHeader">
+                        <img className="errorIcon"/>
+                        <p className="registerHeaderText">Error 228 : User is undefined</p>
+                    </div>
+                    <form className="registerForm" onSubmit={this.handleSubmit}>
+
+                        <p className="registerFormItem">Nickname: <input className="registerInput" type="text" name="nickname" value={this.state.nickname} onChange={this.handleNameChange} /></p>
+                        <p className="registerFormItem">Password: <input className="registerInput" type="password" name="password" value={this.state.password} onChange={this.handlePasswordChange} /></p>
+                        <p className="registerFormItem">Confirm password: <input className="registerInput" type="password" name="confirmPassword" value={this.state.confirmPassword} onChange={this.handleConfirmPasswordChange} /></p>
+                        <p className="registerFormItem">E-mail: <input className="registerInput" type="text" name="email" value={this.state.email} onChange={this.handleEmailChange} /></p>
+                        <button className="registerButton" type="submit">Register</button>
                     </form>
+                </div>
                 </div>
             );
 //        } else {
