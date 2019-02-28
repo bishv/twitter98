@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import Header from "../../components/Header/Header";
 import Messages from "../../components/Messages/Messages";
 import Feed from "../../components/Feed/Feed";
+
 import Profile from "../../components/Profile/Profile";
 import Notifications from "../../components/Notifications/Notifications";
 class Main extends Component{
@@ -11,6 +12,7 @@ class Main extends Component{
         showedNotifications: false,
         showedProfile: false
     };
+
 
     showedToggle = () => {
         this.setState({
@@ -39,6 +41,7 @@ class Main extends Component{
             <Feed/>
 
         </div>
+
         )
     }
 }

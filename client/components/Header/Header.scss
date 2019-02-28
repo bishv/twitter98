@@ -44,7 +44,7 @@
   color: black;
 }
 
-.btn {
+.btns {
   width: 59px;
   height: 59px;
   border: 3px solid whitesmoke;
@@ -53,23 +53,23 @@
   border-bottom-color: black;
 }
 
-.btn.notifications {
+.btns.notifications {
   background: url("../../icons/noti.png") no-repeat center;
   background-size: 100%;
 }
 
-.btn.messages {
+.btns.messages {
   background: url("../../icons/msg.png") no-repeat center;
   background-size: 100%;
 }
 
-.btn.favorites {
+.btns.favorites {
   margin-left: 15px;
   background: url("../../icons/fav.png") no-repeat center;
   background-size: 100%;
 }
 
-.btn:active {
+.btns:active {
   border: 3px solid black;
   border-right-color: whitesmoke;
   border-bottom-color: whitesmoke;
@@ -110,7 +110,7 @@
   color: darkgray;
 }
 
-.btn.profile {
+.btns.profile {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -132,11 +132,12 @@
   background-size: 100%;
 }
 
-.btn.profile p::selection {
+.btns.profile p::selection {
   background-color: transparent;
 }
 
 .phrase {
+  user-select: none;
   align-self: center;
   font-size: 30px;
 }

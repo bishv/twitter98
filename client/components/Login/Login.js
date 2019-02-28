@@ -7,6 +7,7 @@ class Login extends Component {
         isVisible: true
     }
 
+
     showedToggle = () => {
         this.setState({
             isVisible: !this.state.isVisible

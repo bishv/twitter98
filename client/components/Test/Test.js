@@ -1,12 +1,8 @@
 import React, {Component} from 'react'
-import './postmaker.scss'
-import './profile.scss'
-
 import {Button, Modal,Form} from "react-bootstrap";
+import "./test.scss";
 
-import {connect} from "react-redux";
-
-class Profile extends Component {
+class Test extends Component{
     constructor(props, context) {
         super(props, context);
 
@@ -26,15 +22,12 @@ class Profile extends Component {
         this.setState({ show: true });
     }
     render() {
-        return (
-            <div className="profile-container">
+        return(
+            <div>
 
-                <div className="profile_avatar"/>
-                <button className="profile_button"><span>Settings</span></button>
-                <button className="profile_button"><span>Wall</span></button>
-                <button className="profile_button" onClick={this.handleShow}><span>New post</span></button>
-                <button className="profile_button"><span>New Quote</span></button>
-                <button className="profile_button_exit">Exit</button>
+            <Button variant="primary" onClick={this.handleShow}>
+                Launch demo modal
+            </Button>
                 <Modal
                     {...this.props}
                     size="lg"
@@ -60,10 +53,14 @@ class Profile extends Component {
                     </Modal.Footer>
 
                 </Modal>
-
-            </div>
+                <link
+                    rel="stylesheet"
+                    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+                    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+                    crossOrigin="anonymous"
+                />
+                </div>
         );
     }
 }
-
-export default connect()(Profile);
+export default Test;

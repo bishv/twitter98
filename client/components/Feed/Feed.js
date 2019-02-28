@@ -39,7 +39,7 @@ class Feed extends Component {
             <div className="feed_container">
                 <div className="feed_buttons">
                     <div className="feed_favor active">Fav</div>
-                    <div className="feed_btn">Feed</div>
+                    <div className="feed_btns">Feed</div>
                 </div>
                 <div className="feed_body">
                     <div className="feed_data">
